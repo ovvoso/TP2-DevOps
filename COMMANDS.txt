@@ -1,0 +1,121 @@
+﻿################################################################################
+#  COMMANDES TP2 DevOps - API Java EE avec Vagrant
+# Auteur: Thierno Maadjou Sow
+################################################################################
+
+================================================================================
+ DÉMARRAGE
+================================================================================
+
+# Lancer les VMs
+vagrant up
+
+# Vérifier l'état
+vagrant status
+
+# Se connecter à srv-app
+vagrant ssh srv-app
+
+# Se connecter à srv-db
+vagrant ssh srv-db
+
+================================================================================
+ DÉPLOIEMENT AUTOMATISÉ (LA COMMANDE LA PLUS IMPORTANTE !)
+================================================================================
+
+# Se connecter à srv-app
+vagrant ssh srv-app
+
+# Charger les alias
+source ~/.bashrc
+
+# Déployer l'application automatiquement
+deploy
+
+# OU sans alias :
+bash /vagrant/scripts/deploy-app-auto.sh
+
+# Test rapide
+curl http://localhost:8888/api_diti4_jee_2025_2-1.0-SNAPSHOT/api/personnes
+
+================================================================================
+ ARRÊT
+================================================================================
+
+# Arrêter les VMs
+vagrant halt
+
+# Supprimer les VMs
+vagrant destroy -f
+
+================================================================================
+ ALIAS UTILES (dans srv-app après source ~/.bashrc)
+================================================================================
+
+deploy          # Déploiement complet automatisé
+tom-start       # Démarrer Tomcat
+tom-stop        # Arrêter Tomcat
+tom-logs        # Voir les logs Tomcat
+tom-status      # Vérifier si Tomcat tourne
+mvn-build       # Compiler le projet
+cdapp           # Aller au dossier du projet
+
+================================================================================
+ TESTS API (depuis Windows PowerShell)
+================================================================================
+
+# GET Personnes
+curl http://localhost:8888/api_diti4_jee_2025_2-1.0-SNAPSHOT/api/personnes -UseBasicParsing
+
+# POST Personne
+$body = @{ nom = "Sow"; prenom = "Thierno"; age = 25 } | ConvertTo-Json
+Invoke-RestMethod -Method POST -Uri "http://localhost:8888/api_diti4_jee_2025_2-1.0-SNAPSHOT/api/personnes" -ContentType "application/json" -Body $body
+
+# GET Patients
+curl http://localhost:8888/api_diti4_jee_2025_2-1.0-SNAPSHOT/api/patients -UseBasicParsing
+
+================================================================================
+ BASE DE DONNÉES
+================================================================================
+
+# Se connecter à srv-db
+vagrant ssh srv-db
+
+# Voir les tables
+mysql -u devops_user -p12345 devops_db -e "SHOW TABLES;"
+
+# Voir les données
+mysql -u devops_user -p12345 devops_db -e "SELECT * FROM Personne;"
+mysql -u devops_user -p12345 devops_db -e "SELECT * FROM Patient;"
+
+================================================================================
+ DÉPANNAGE
+================================================================================
+
+# Redémarrer Tomcat
+vagrant ssh srv-app
+tom-stop
+tom-start
+
+# Voir les logs
+tom-logs
+
+# Redémarrer MySQL
+vagrant ssh srv-db
+sudo systemctl restart mysql
+
+# Re-provisionner les VMs
+vagrant provision
+
+================================================================================
+ INFOS IMPORTANTES
+================================================================================
+
+srv-app : 192.168.56.10 (Tomcat + Java + Maven)
+srv-db  : 192.168.56.11 (MySQL)
+
+MySQL : devops_user / 12345 / devops_db
+
+URL API : http://localhost:8888/api_diti4_jee_2025_2-1.0-SNAPSHOT/api
+
+################################################################################

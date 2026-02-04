@@ -1,0 +1,62 @@
+# Vagrant
+.vagrant/
+*.log
+
+# VirtualBox
+*.vdi
+*.vmdk
+*.vbox
+
+# Java/Maven
+target/
+*.class
+*.jar
+*.war
+*.ear
+dependency-reduced-pom.xml
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# IDE - Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# IDE - VSCode
+.vscode/
+*.code-workspace
+
+# Système d'exploitation
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+*.out
+
+# Fichiers temporaires
+*.tmp
+*.swp
+*.bak
+*~
+
+# Secrets et config sensibles
+.env
+*.key
+*.pem
+secrets/
+
+# Node modules (si utilisé)
+node_modules/
+
+# Fichiers de build
+build/
+dist/
