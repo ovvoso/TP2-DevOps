@@ -30,10 +30,11 @@ bash /vagrant/scripts/deploy-app-auto.sh
 ### 1. Configuration Vagrant
 
 #### Vagrantfile
-![Vagrantfile Configuration](images/vagrantfile.png)
+![Vagrantfile Configuration](images/Vagrantfile.png)
 
 #### Vagrant Up - Création des VMs
 ![UP srv-app](images/up-srv-app.png)
+
 ![UP srv-db](images/up-srv-db.png)
 
 ### 2. Scripts de Déploiement
@@ -47,7 +48,7 @@ bash /vagrant/scripts/deploy-app-auto.sh
 ### 3. Connexion SSH aux VMs
 
 #### Connexion à srv-app
-![SSH srv-app](/images/ssh-srv-app.png)
+![SSH srv-app](images/ssh-srv-app.png)
 
 #### Connexion à srv-db
 ![SSH srv-db](images/ssh-srv-db.png)
