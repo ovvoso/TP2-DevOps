@@ -33,20 +33,21 @@ bash /vagrant/scripts/deploy-app-auto.sh
 ![Vagrantfile Configuration](images/vagrantfile.png)
 
 #### Vagrant Up - Création des VMs
-![Vagrant Up](images/vagrant-up.png)
+![UP srv-app](images/up-srv-app.png)
+![UP srv-db](images/up-srv-db.png)
 
 ### 2. Scripts de Déploiement
 
 #### deploy-app.sh (srv-app)
-![Script deploy-app](images/deploy-app-script.png)
+![Script deploy-app](images/deploy-app.png)
 
 #### deploy-db.sh (srv-db)
-![Script deploy-db](images/deploy-db-script.png)
+![Script deploy-db](images/deploy-db.png)
 
 ### 3. Connexion SSH aux VMs
 
 #### Connexion à srv-app
-![SSH srv-app](images/ssh-srv-app.png)
+![SSH srv-app](/images/ssh-srv-app.png)
 
 #### Connexion à srv-db
 ![SSH srv-db](images/ssh-srv-db.png)
@@ -336,26 +337,7 @@ Body:
   "maladie": "Hypertension"
 }
 ```
-# 📸 Captures d'écran
-
-Voici les captures d'écran des tests API et du déploiement :
-
-## API Personnes
-
-### GET - Récupérer les personnes
-![API Personnes - GET](src/main/resources/imag/api_img_personnes.png)
-
-### Tests Postman - Personnes
-![API Personnes - Tests Postman](src/main/resources/imag/api_img_personnes_postman.png)
-
-## API Patients
-
-### GET - Récupérer les patients
-![API Patients - GET](src/main/resources/imag/api_img_patients.png)
-
-### Tests Postman - Patients
-![API Patients - Tests Postman](src/main/resources/imag/api_img_patients_postman.png)
-## ⚙️ Alias Bash Disponibles
+# ⚙️ Alias Bash Disponibles
 
 Une fois dans la VM srv-app, vous pouvez utiliser ces alias pratiques :
 
@@ -447,7 +429,6 @@ public class Patient extends Personne {
 ## 📚 Documentation Complète
 
 Pour toutes les commandes détaillées, consultez [COMMANDS.txt](COMMANDS.txt) qui contient :
-- 15 sections de documentation
 - Commandes testées et vérifiées
 - Exemples d'utilisation complets
 - Workflow récapitulatif
